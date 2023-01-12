@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <title>HBO</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</head>
+<body class="bg-black">
+    <nav class="fixed w-full p-7 z-10 bg-gradient-to-b from-zinc-700">
+        <div class="relative flex items-center justify-center">
+            <!-- nav left -->
+            <div class="flex absolute left-0">
+                <!-- slide menu -->
+                <div x-data="{ slideOut: false }" class="block">
+                    <button
+                    @click="slideOut = !slideOut"
+                    class="p-3 text-teal-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 50 50" width="20px" height="20px">
+                        <path d="M 3 8 A 2.0002 2.0002 0 1 0 3 12 L 47 12 A 2.0002 2.0002 0 1 0 47 8 L 3 8 z M 3 23 A 2.0002 2.0002 0 1 0 3 27 L 47 27 A 2.0002 2.0002 0 1 0 47 23 L 3 23 z M 3 38 A 2.0002 2.0002 0 1 0 3 42 L 47 42 A 2.0002 2.0002 0 1 0 47 38 L 3 38 z"/>
+                    </svg>
+                </button>
+
+                <div
+                x-show="slideOut"
+                x-transition.opacity
+                class="fixed inset-0 bg-black/25">
+            </div>
+            <div
+            x-show="slideOut"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="-translate-x-full"
+            x-transition:enter-end="translate-x-0"
+            x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="translate-x-0"
+            x-transition:leave-end="-translate-x-full"
+            @click.outside="slideOut = false"
+            class="fixed inset-y-0 left-0 z-50 max-w-fit menu-color overflow-auto">
+            <div class="flex flex-col p-7 pt-2 md:px-10 xl:px-14 leading-10 xl:leading-12 nav-text-color text-lg xl:text-xl">
+                <button
+                @click="slideOut = false"
+                aria-label="Close menu"
+                class="h-16 w-16 h-16 w-16 self-start hover:text-white"
+                type="button">
+                <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-7 w-7"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+        <a href="" @click="slideOut = false" class="hover:text-white hover:font-semibold">
+            Home
+        </a>
+        <a href="" @click="slideOut = false" class="hover:text-white hover:font-semibold">
+            Movies
+        </a>
+        <a href="" @click="slideOut = false" class="hover:text-white hover:font-semibold">
+            Series
+        </a>
+        <a href="" @click="slideOut = false" class="hover:text-white hover:font-semibold">
+            Originals
+        </a>
+        <a href="" @click="slideOut = false" class="hover:text-white hover:font-semibold">
+            Trending Now
+        </a>
+        <a href="" @click="slideOut = false" class="hover:text-white hover:font-semibold">
+            Just Added
+        </a>
+        <div class="my-5 py-2 border-t border-b border-current">
+            <a href="" @click="slideOut = false" class="group flex justify-between hover:text-white hover:font-semibold">
+                Genres
+                <img src="images/right_arrow.png" alt="" class="w-5 h-5 self-center opacity-70 group-hover:opacity-100">
+            </a>
+        </div>
+        <div class="logos grid grid-cols-2 gap-6 xl:p-4">
+            <img src="images/nav_logo.png" alt="" class="w-100 h-10 opacity-90 hover:opacity-100 hover:scale-110">
+            <img src="images/nav_logo_2.png" alt="" class="w-100 h-10 opacity-90 hover:opacity-100 hover:scale-110">
+            <img src="images/nav_logo_3.png" alt="" class="w-100 h-10 opacity-90 hover:opacity-100 hover:scale-110">
+            <img src="images/nav_logo_4.png" alt="" class="w-100 h-10 opacity-90 hover:opacity-100 hover:scale-110">
+            <img src="images/nav_logo_5.png" alt="" class="w-100 h-10 opacity-90 hover:opacity-100 hover:scale-110">
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- links visible on md displays only-->
+<div class="md:flex hidden pl-6 lg:space-x-10 space-x-4 items-center nav-text-color">
+    <a href="#" class="px-2 tracking-tight font-semibold hover:text-white">
+        Movies
+    </a>
+    <a href="#" class="px-2 tracking-tight font-semibold hover:text-white">
+        Series
+    </a>
+</div>
+</div>
+
+<!-- nav center - hbo logo -->
+<a href="index.html" class="">
+    <img src="images/logo.png" alt="" class="w-24 md:w-40">
+</a>
+
+<!-- nav right - search button + account -->
+<div class="flex absolute right-6 gap-4 items-center">
+    <img src="images/search.png" alt="" class="opacity-80 px-2">
+
+    <div class="flex gap-2">
+        <button type="button" name="button" class="text-white font-bold px-2.5 py-1 border-2 rounded-full border-pink-600 bg-violet-920">N</button>
+        <!-- account name visible on md displays only -->
+        <a href="#" class="hidden md:block tracking-tight font-semibold nav-text-color hover:text-white self-center">
+            Name
+        </a>
+    </div>
+</div>
+</div>
+</nav>
+<main class="">
+    <!-- movie poster + details -->
+    <div class="relative min-h-screen">
+        <img src="images/poster.jpeg" alt="" class=" hidden sm:block">
+        <img src="images/poster_small.jpeg" alt="" class="sm:hidden">
+        <div class="absolute inset-0 gradient-side"></div>
+        <div class="absolute inset-0 gradient-big"></div>
+        <div class="absolute inset-0 gradient sm:hidden"></div>
+
+        <!-- title, controls, description -->
+        <div class="absolute top-2/3 px-9 w-full">
+            <img src="images/logo_movie.png" alt="" class="opacity-90 sm:w-4/12">
+            <p class="py-2 spaced text-xs text-zinc-300">1HR37MIN 16+ 1999 HD</p>
+            <div class="flex items-center justify-between xs:justify-start xs:gap-7 pt-2">
+                <div class="">
+                    <img src="images/play.png" alt=""  class="border-2 rounded-full border-white p-3">
+                </div>
+                <div class="flex gap-7">
+                    <img src="images/reset.png" alt="">
+                    <img src="images/add.png" alt="">
+                </div>
+            </div>
+            <div class="relative mt-3 bg-gray-400 h-1 w-full md:w-1/2">
+                <div class="absolute left-0 h-1 w-1/2 bg-white">
+                </div>
+            </div>
+            <div class="nav-text-color py-4 tracking-tight md:w-1/2">
+                Young Esteban wants to become a writer and also to discover the identity of his father, carefully concealed by the mother Manuela.
+            </div>
+        </div>
+    </div>
+    <!-- movies slider -->
+    <div class="">
+        <h2 class="text-white font-bold text-lg py-2 pl-9">
+            More Like This
+        </h2>
+        <div class="relative">
+            <div class="scrolling-wrapper-flexbox slide-me flex gap-4 overflow-hidden">
+
+                <img src="images/1.jpeg" alt="" class="slide-image ml-9">
+                <img src="images/2.jpeg" alt="" class="slide-image">
+                <img src="images/3.jpeg" alt="" class="slide-image">
+                <img src="images/4.jpeg" alt="" class="slide-image">
+                <img src="images/5.jpeg" alt="" class="slide-image">
+                <img src="images/6.jpeg" alt="" class="slide-image">
+                <img src="images/7.jpeg" alt="" class="slide-image">
+                <img src="images/8.jpeg" alt="" class="slide-image">
+                <img src="images/9.jpeg" alt="" class="slide-image">
+                <img src="images/10.jpeg" alt="" class="slide-image">
+                <img src="images/11.jpeg" alt="" class="slide-image">
+                <img src="images/12.jpeg" alt="" class="slide-image">
+                <img src="images/13.jpeg" alt="" class="slide-image">
+                <img src="images/14.jpeg" alt="" class="slide-image">
+                <img src="images/15.jpeg" alt="" class="slide-image">
+                <img src="images/16.jpeg" alt="" class="slide-image">
+                <img src="images/17.jpeg" alt="" class="slide-image">
+                <img src="images/18.jpeg" alt="" class="slide-image">
+                <img src="images/19.jpeg" alt="" class="slide-image">
+                <img src="images/20.jpeg" alt="" class="slide-image mr-9">
+            </div>
+            <div class="absolute w-full h-full top-0">
+                <button type="button" name="button" class="slide-btn-r">
+                    <img src="images/right-arrow-scroll.png" class="center-me  absolute right-0 h-10 bottom-24" alt="">
+                </button>
+                <button type="button" name="button" class="hidden slide-btn-l">
+                    <img src="images/right-arrow-scroll.png" class="center-me absolute left-0 h-10 bottom-24 rotate-180" alt="">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- cast & crew -->
+    <div class="tabs accordion px-9 pt-10 nav-text-color">
+        <div class="pb-4">
+            <h2 class="text-white font-bold text-lg py-2">Cast & Crew</h2>
+            <div class="flex flex-cols-2 gap-10">
+                <ul>
+                    <li>Actor</li>
+                    <li>Actor</li>
+                    <li>Actor</li>
+                    <li>Actor</li>
+                    <li>Actor</li>
+                    <li>Actor</li>
+                    <li>Actor</li>
+                    <li>Actor</li>
+                    <li>Actor</li>
+                    <li>Actor</li>
+                </ul>
+                <ul>
+                    <li>Cecilia Roth</li>
+                    <li>Eloy Azorin</li>
+                    <li>Marisa Paredes</li>
+                    <li>Candela Peña </li>
+                    <li>Antonia San Juan</li>
+                    <li>Penélope Cruz</li>
+                    <li>Rosa Maria Sardà</li>
+                    <li>Fernando Fernán Gómez</li>
+                    <li>Toni Cantó</li>
+                    <li>Rosa Manaut</li>
+                </ul>
+            </div>
+        </div>
+        <div class="tab">
+            <input type="checkbox" id="chck1">
+            <label for="chck1" class="tab-label flex justify-between items-center">
+                <h2 class="text-white font-bold text-lg py-2">Producers</h2>
+                <div class="arrow">
+                    <img src="images/arrow.png" alt="" class="arrow transition-transform duration-200 ease-in-out">
+                </div>
+            </label>
+            <div class="tab-content flex flex-cols-2 gap-10">
+                <ul>
+                    <li>Executive Producer</li>
+                    <li>Producer</li>
+                </ul>
+                <ul>
+                    <li>Augustin Almodovar</li>
+                    <li>Claude Berri</li>
+                </ul>
+            </div>
+        </div>
+        <div class="tab">
+            <input type="checkbox" id="chck2">
+            <label for="chck2" class="tab-label flex justify-between items-center">
+                <h2 class="text-white font-bold text-lg py-2">Directors</h2>
+                <div class="arrow">
+                    <img src="images/arrow.png" alt="" class="arrow transition-transform duration-200 ease-in-out">
+                </div>
+            </label>
+            <div class="tab-content flex flex-cols-2 gap-10">
+                <ul>
+                    <li>Director</li>
+                </ul>
+                <ul>
+                    <li>Pedro Almodovar</li>
+                </ul>
+            </div>
+        </div>
+        <div class="tab">
+            <input type="checkbox" id="chck3">
+            <label for="chck3" class="tab-label flex justify-between items-center">
+                <h2 class="text-white font-bold text-lg py-2">Rating Information</h2>
+                <div class="arrow">
+                    <img src="images/arrow.png" alt="" class="arrow transition-transform duration-200 ease-in-out">
+                </div>
+            </label>
+            <p class="tab-content">16+</p>
+        </div>
+    </div>
+
+</main>
+
+</body>
+
+<script src="tailwind.config.js"></script>
+<script src="script.js"></script>
+</html>

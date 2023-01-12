@@ -1,0 +1,86 @@
+.nav-text-color {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.menu-color {
+    background-color: #0F0F0F;
+}
+
+.spaced {
+    word-spacing: 1rem;
+}
+
+/* gradient */
+
+.gradient {
+  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 85%, rgba(0,0,0,0) 100%);
+
+}
+
+.gradient-big {
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,0.21332282913165268) 38%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 100%);
+}
+
+.gradient-side {
+    background: linear-gradient(90deg, rgba(0,0,0,0.5970763305322129) 0%, rgba(0,0,0,0) 8%, rgba(0,0,0,0) 100%);
+}
+
+/* xs view crew accordion */
+
+.accordion > div.tab {
+    position: relative;
+}
+
+.tab input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+.tabs,
+.tab {
+  overflow: hidden;
+}
+
+.tab h2 {
+    cursor: pointer;
+}
+
+.tab-content {
+  max-height: 0;
+  transition: all 0.35s;
+}
+
+.tab input:checked ~ .tab-content {
+  max-height: 100vh;
+  padding-bottom: 5px;
+}
+
+.tab input:checked ~ label .arrow img {
+    transform: rotate(180deg);
+}
+
+
+/* movie scroll */
+
+
+.scrolling-wrapper-flexbox {
+ display: flex;
+ flex-wrap: nowrap;
+ overflow-x: auto;
+
+}
+
+.scrolling-wrapper-flexbox img {
+    flex: 0 0 auto;
+}
+
+.scrolling-wrapper-flexbox {
+-webkit-overflow-scrolling: touch;
+}
+
+.center-me {
+    top: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -50%);
+}
